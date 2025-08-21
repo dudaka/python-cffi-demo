@@ -46,8 +46,26 @@ You need a C compiler installed on Windows:
 
 3. **Clean up build artifacts** (optional):
    ```cmd
-   cleanup.bat
+   cleanup.bat          # Windows batch script
+   cleanup.ps1          # PowerShell script  
+   python cleanup.py    # Cross-platform Python script
    ```
+
+## Cleanup Scripts
+
+Three cleanup options are provided to remove all generated files:
+
+- **`cleanup.bat`** - Windows batch script
+- **`cleanup.ps1`** - PowerShell script with detailed progress reporting
+- **`cleanup.py`** - Cross-platform Python script with comprehensive cleanup
+
+All scripts remove:
+- Compiled extensions (`.pyd` files)
+- Generated C source (`_example.c`)
+- Build directories (`build/`, `Release/`)
+- Visual Studio artifacts (`.obj`, `.lib`, `.exp`, `.pdb`, `.ilk`)
+- Python cache files (`__pycache__/`, `*.pyc`)
+- Distribution artifacts (`dist/`, `*.egg-info/`)
 
 ## What the Example Demonstrates
 
