@@ -1,0 +1,10 @@
+include README.md
+include cleanup.bat
+include cleanup.ps1
+include cleanup.py
+include simple_example_build.py
+include usage_example.py
+include test_example.py
+include setup_demo_simple.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

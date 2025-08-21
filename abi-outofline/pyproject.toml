@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "cffi>=1.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cffi-abi-outofline-example"
+version = "1.0.0"
+description = "A demonstration of CFFI's out-of-line ABI mode"
+readme = "README.md"
+authors = [{name = "CFFI Example", email = "example@example.com"}]
+license = {text = "MIT"}
+requires-python = ">=3.7"
+dependencies = ["cffi>=1.0.0"]
+keywords = ["cffi", "abi", "ffi", "c", "windows", "example", "demonstration"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: MacOS",
+]
+
+[project.urls]
+Homepage = "https://github.com/example/cffi-abi-outofline-example"
+"Bug Reports" = "https://github.com/example/cffi-abi-outofline-example/issues"
+Source = "https://github.com/example/cffi-abi-outofline-example"
+Documentation = "https://cffi.readthedocs.io/"
+
+[project.scripts]
+cffi-abi-example = "cli_wrapper:run_example"
+cffi-abi-test = "cli_wrapper:run_test"
+
+[tool.setuptools]
+py-modules = ["simple_example_build", "usage_example", "test_example", "cli_wrapper"]
+include-package-data = true
+
+[tool.setuptools.packages]
+find = {}
+
+# CFFI configuration - this replaces the cffi_modules in setup.py
+[tool.setuptools.dynamic]
+# Note: CFFI modules configuration might need to be handled in setup.py
+# until better pyproject.toml support is available
