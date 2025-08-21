@@ -128,12 +128,21 @@ python comprehensive_demo.py    # Advanced features
 
 ## 🛠️ Requirements
 
+**⚠️ Currently Windows Only**: These examples have been developed and tested on Windows. Cross-platform compatibility testing for Linux and macOS is planned for future releases.
+
+### Windows Requirements:
 - **Python 3.7+**
 - **CFFI 1.0.0+** (`pip install cffi`)
 - **C Compiler** (for API mode examples):
-  - Windows: Visual Studio Build Tools or MinGW
-  - Linux: GCC
-  - macOS: Xcode Command Line Tools
+  - **Recommended**: Visual Studio Build Tools 2019 or newer
+  - **Alternative**: Visual Studio Community/Professional with C++ support
+  - **Alternative**: MinGW-w64 (may require additional configuration)
+
+### Future Platform Support:
+- **Linux**: Planned (will require GCC and testing)
+- **macOS**: Planned (will require Xcode Command Line Tools and testing)
+
+**Note**: While CFFI itself is cross-platform, these specific examples use Windows-specific libraries (msvcrt.dll, kernel32.dll) and have Windows-specific build configurations that will need adaptation for other platforms.
 
 ## 🏗️ Building and Distribution
 
@@ -195,15 +204,19 @@ python cleanup.py
 
 ### Platform-Specific Notes
 
-**Windows:**
+**Windows (Currently Supported):**
 - Uses `msvcrt.dll` for C runtime functions
 - Demonstrates Windows API calls (kernel32.dll)
-- Includes batch file cleanup scripts
+- Includes batch file and PowerShell cleanup scripts
+- Tested with Visual Studio Build Tools
+- All examples verified to work on Windows 10/11
 
-**Linux/macOS:**
-- Uses standard C library loading
+**Linux/macOS (Future Support Planned):**
+- Will require adaptation for standard C library loading
 - Different library file extensions (.so vs .dll)
-- Shell script equivalents provided where applicable
+- Shell script cleanup equivalents will be provided
+- Build system configurations will need platform-specific adjustments
+- Library loading mechanisms may need updates for different platforms
 
 ## 🤝 Contributing
 
@@ -227,4 +240,4 @@ This project is licensed under the MIT License - see individual demo directories
 
 ## 🏷️ Tags
 
-`python` `cffi` `c-extension` `ffi` `windows` `cross-platform` `api` `abi` `setuptools` `packaging`" 
+`python` `cffi` `c-extension` `ffi` `windows` `windows-api` `api` `abi` `setuptools` `packaging` `visual-studio`
