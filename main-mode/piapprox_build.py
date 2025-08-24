@@ -17,7 +17,7 @@ ffibuilder.set_source("_pi_cffi",
 """,
      libraries=['piapprox'],           # library name, for the linker
      library_dirs=['.'],              # look for library in current directory
-     include_dirs=['.'])              # look for headers in current directory
+     include_dirs=['./include'])              # look for headers in current directory
 
 if __name__ == "__main__":
     ffibuilder.compile(verbose=True)

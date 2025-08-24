@@ -30,7 +30,7 @@ main-mode/
 
 ## Build Process
 
-You can build this project in two ways: using the direct CFFI approach or using setuptools.
+You can build this project in three ways: using the direct CFFI approach, using setuptools, or as a shared library (DLL).
 
 ### Method 1: Direct CFFI Build (Manual)
 
@@ -131,6 +131,43 @@ pip install .
 **When to use each:**
 - Use `pip install -e .` during development when you're making frequent changes
 - Use `pip install .` for final installation or when distributing to others
+
+### Method 3: Shared Library (DLL) Approach
+
+This method creates a reusable DLL that can be shared across multiple applications.
+
+#### Quick Build with Batch Script
+
+```cmd
+build_dll.bat
+```
+
+#### Manual Build Steps
+
+```cmd
+# Set up Visual Studio environment
+"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+# Compile C source
+cl /c lib\pi_dll.c /I include
+
+# Create DLL
+cl /LD pi_dll.obj /Fe:piapprox.dll
+
+# Build Python extension
+python piapprox_build_dll.py
+
+# Test
+python test_dll.py
+```
+
+**Advantages of DLL approach:**
+- Reusable library that can be used by multiple applications
+- Smaller Python extensions (logic is in the DLL)
+- Can update the DLL independently of Python extensions
+- Memory efficient (shared across processes)
+
+**See `README_DLL.md` for detailed information about the shared library approach.**
 
 ## Running the Test
 
