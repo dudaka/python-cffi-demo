@@ -6,8 +6,10 @@ This project demonstrates how to use Python CFFI (C Foreign Function Interface) 
 
 ```
 main-mode/
-├── pi.c                 # C source code with pi_approx function
-├── pi.h                 # C header file
+├── lib/
+│   └── pi.c             # C source code with pi_approx function
+├── include/
+│   └── pi.h             # C header file
 ├── piapprox_build.py    # CFFI build script
 ├── test.py              # Test script to demonstrate the extension
 └── README.md            # This file
@@ -15,8 +17,8 @@ main-mode/
 
 ## Files Description
 
-- **`pi.c`**: Contains the `pi_approx()` function that uses a Monte Carlo method to approximate Pi
-- **`pi.h`**: Header file declaring the `pi_approx()` function
+- **`lib/pi.c`**: Contains the `pi_approx()` function that uses a Monte Carlo method to approximate Pi
+- **`include/pi.h`**: Header file declaring the `pi_approx()` function
 - **`piapprox_build.py`**: CFFI build script that compiles the C code into a Python extension
 - **`test.py`**: Python test script that demonstrates how to use the compiled extension
 
@@ -43,7 +45,7 @@ Open a Command Prompt and set up the Visual Studio build environment:
 #### Step 2: Compile C Source to Object File
 
 ```cmd
-cl /c pi.c
+cl /c lib\pi.c
 ```
 
 This creates `pi.obj` from the C source code.
@@ -80,7 +82,7 @@ This method uses Python's standard build tools and is more suitable for distribu
 #### Step 2: Build Prerequisites
 
 ```cmd
-cl /c pi.c
+cl /c lib\pi.c
 lib /OUT:piapprox.lib pi.obj
 ```
 
