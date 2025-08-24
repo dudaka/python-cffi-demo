@@ -71,6 +71,32 @@ def main():
         print(f"   Error using Windows functions: {e}")
     
     print()
+    
+    # Method 3: Load a custom DLL (example)
+    print("3. Loading a custom DLL:")
+    try:
+        # Example 1: DLL in same directory as script
+        # my_lib = ffi.dlopen("my_custom_library.dll")
+        
+        # Example 2: DLL with relative path
+        # my_lib = ffi.dlopen("./libs/my_library.dll")
+        
+        # Example 3: DLL with absolute path
+        # my_lib = ffi.dlopen(r"C:\path\to\my\library.dll")
+        
+        # Example 4: DLL using Python path resolution
+        # import os
+        # script_dir = os.path.dirname(os.path.abspath(__file__))
+        # dll_path = os.path.join(script_dir, "my_library.dll")
+        # my_lib = ffi.dlopen(dll_path)
+        
+        print("   Custom DLL loading examples shown in comments above")
+        print("   Uncomment and modify paths as needed for your DLL")
+        
+    except Exception as e:
+        print(f"   Error loading custom DLL: {e}")
+    
+    print()
     print("=== Example completed successfully! ===")
 
 if __name__ == "__main__":
