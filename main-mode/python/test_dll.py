@@ -6,6 +6,13 @@ This script demonstrates the usage of the pi_approx function
 from a C shared library (DLL) via Python CFFI.
 """
 
+import sys
+import os
+
+# Add current directory to path for importing the extension
+sys.path.insert(0, '.')
+sys.path.insert(0, os.path.dirname(__file__))
+
 try:
     from _pi_cffi_dll import lib
     print("Testing Pi Approximation Function (DLL Version)")
@@ -25,7 +32,9 @@ try:
 except ImportError as e:
     print(f"Error importing the extension: {e}")
     print("Make sure you have built the extension by running:")
-    print("1. build_dll.bat (Windows)")
+    print("1. cmake --build . --target python_extension")
     print("2. Or manually: python piapprox_build_dll.py")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Python path: {sys.path[:3]}")
 except Exception as e:
     print(f"Error running the test: {e}")

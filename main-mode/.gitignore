@@ -1,0 +1,57 @@
+# Build directories
+build/
+Release/
+Debug/
+MinSizeRel/
+RelWithDebInfo/
+
+# Visual Studio generated files
+*.vcxproj*
+*.sln
+*.user
+*.cache
+
+# Compiled libraries
+*.lib
+*.dll
+*.so
+*.dylib
+*.a
+
+# Object files
+*.obj
+*.o
+
+# Python compiled extensions and cache
+*.pyd
+*.so
+__pycache__/
+*.pyc
+*.pyo
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# IDE files
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# CFFI build artifacts
+_pi_cffi*
+*.c.o

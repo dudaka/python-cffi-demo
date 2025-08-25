@@ -1,12 +1,11 @@
-/* filename: pi.c - DLL version */
-#define BUILDING_PI_DLL
-#include "pi_dll.h"
+/* filename: pi.c*/
 #include <stdlib.h>
 #include <math.h>
+#include "pi.h"
 
 /* Returns a very crude approximation of Pi
    given a int: a number of iteration */
-PI_API float pi_approx(int n){
+float pi_approx(int n){
 
   double i,x,y,sum=0;
 

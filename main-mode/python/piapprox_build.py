@@ -1,4 +1,6 @@
 from cffi import FFI
+import os
+
 ffibuilder = FFI()
 
 # cdef() expects a single string declaring the C types, functions and
@@ -16,8 +18,8 @@ ffibuilder.set_source("_pi_cffi",
      #include "pi.h"   // the C header of the library
 """,
      libraries=['piapprox'],           # library name, for the linker
-     library_dirs=['.'],              # look for library in current directory
-     include_dirs=['./include'])              # look for headers in current directory
+     library_dirs=['.', '../build', '../build/Release', '../build/Debug'],  # look for library in build directories
+     include_dirs=['../include'])     # look for headers in include directory
 
 if __name__ == "__main__":
     ffibuilder.compile(verbose=True)
